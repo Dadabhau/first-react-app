@@ -1,18 +1,35 @@
 import "./App.css";
 import { useState } from "react";
 import { Row, Col, Divider } from "antd";
+import { Button } from 'antd';
 import {dataSource,columns} from "./data/tabledata.json";
+//import {dataSource, columns} from "./data/table.json"
 
 
 import AccordionComponent from "./component/accord-component";
 import TableComponent from "./component/table";
 import AntTableComponent from "./component/ant-table";
 
+
 const style = { background: "#0092ff", padding: "8px 0" };
 
 function App() {
   //State
   const [clientList, setClientList] = useState([]);
+
+  const [counter, setCounter] = useState(0);
+
+  const handleIncrement = () => {
+    setCounter(counter + 1);
+  };
+
+  const handleDecrement = () => {
+    setCounter(counter - 1);
+  };
+ 
+
+
+
 
   return (
     <div>
@@ -72,41 +89,9 @@ function App() {
           </div>
         </Col>
         <Col className="gutter-row" span={12}>
-              <AntTableComponent data={dataSource} columns={columns} />
           <div style={style}>
-
-            {[
-              {
-                tier_name: "Tier 1",
-                tier_desc: "Preferred",
-                current_count: 32,
-                added: 50,
-                removed: 10,
-              },
-              {
-                tier_name: "Tier 2",
-                tier_desc: "Preferred Genric",
-                current_count: 32,
-                added: 50,
-                removed: 10,
-              },
-              {
-                tier_name: "Tier 3",
-                tier_desc: "Genric",
-                current_count: 32,
-                added: 50,
-                removed: 10,
-              },
-              {
-                tier_name: "Tier 4",
-                tier_desc: "Preferred Brand",
-                current_count: 32,
-                added: 50,
-                removed: 10,
-              },
-            ].map((el) => (
-              <TableComponent table={el} />
-            ))}
+            <AntTableComponent data={dataSource} columns={columns} />
+              {/* <TableComponent data={dataSource} columns={columns} /> */}
           </div>
         </Col>
       </Row>
@@ -122,6 +107,16 @@ function App() {
             );
           })}
           <button onClick={() => {setClientList(clientList.concat({ name: "Dadabhau", lastname: "Thete" }))}}>Add List</button>
+        </Col>
+      </Row>
+      <Row>
+        <Divider orientation="left">&nbsp;</Divider>
+        <Col span={12}>
+        
+        <Button type="primary" onClick={handleIncrement}>+</Button>
+        {counter}
+        <Button onClick={handleDecrement}>-</Button>
+     
         </Col>
       </Row>
     </div>

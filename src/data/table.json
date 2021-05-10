@@ -1,0 +1,61 @@
+{
+    "dataSource": [
+      {
+       
+        "tier_name": "Tier 1",
+        "tier_desc": "Preferred",
+        "current_count": 32,
+        "added": 50,
+        "removed": 10
+      },
+      {
+       
+        "tier_name": "Tier 2",
+        "tier_desc": "Preferred Genric",
+        "current_count": 32,
+        "added": 50,
+        "removed": 10
+      },
+      {
+        "tier_name": "Tier 3",
+        "tier_desc": "Genric",
+        "current_count": 32,
+        "added": 50,
+        "removed": 10
+      },
+      {
+        "tier_name": "Tier 4",
+        "tier_desc": "Preferred Brand",
+        "current_count": 32,
+        "added": 50,
+        "removed": 10
+      }
+    ],
+    "columns": [
+      {
+        "title": "TIER NAME",
+        "dataIndex": "tier_name",
+        "key": "tier_name"
+      },
+      {
+        "title": "TIER DESCRIPTION",
+        "dataIndex": "tier_desc",
+        "key": "tier_desc"
+      },
+      {
+        "title": "CURRENT COUNT",
+        "dataIndex": "current_count",
+        "key": "current_count"
+      },
+      {
+        "title": "ADDED",
+        "dataIndex": "added",
+        "key": "added"
+      },
+      {
+        "title": "REMOVED",
+        "dataIndex": "removed",
+        "key": "removed"
+      }
+    ]
+  }
