@@ -3,17 +3,21 @@ import { useState } from "react";
 import { Row, Col, Divider } from "antd";
 import { Button } from 'antd';
 import {dataSource,columns} from "./data/tabledata.json";
-//import {dataSource, columns} from "./data/table.json"
+import {expenses} from "./data/expenses.json";
+
 
 
 import AccordionComponent from "./component/accord-component";
 import TableComponent from "./component/table";
 import AntTableComponent from "./component/ant-table";
+import FormComponent from "./component/form-component";
+import PropsConcept from "./component/props-concept";
 
 
 const style = { background: "#0092ff", padding: "8px 0" };
 
 function App() {
+
   //State
   const [clientList, setClientList] = useState([]);
 
@@ -83,8 +87,10 @@ function App() {
                   count: 20,
                 },
               },
-            ].map((el) => (
-              <AccordionComponent data={el} />
+            ].map((el,i) => (
+              <div key={i}>
+              <AccordionComponent data={el}  />
+              </div>
             ))}
           </div>
         </Col>
@@ -100,7 +106,7 @@ function App() {
         <Col span={12}>
           {clientList.map((item, i) => {
             return (
-              <div>
+              <div key={i}>
                 <span>{item.name}</span>
                 <span>{item.lastname}</span>
               </div>
@@ -116,7 +122,20 @@ function App() {
         <Button type="primary" onClick={handleIncrement}>+</Button>
         {counter}
         <Button onClick={handleDecrement}>-</Button>
-     
+        </Col>
+      </Row>
+
+      <Row>
+        <Divider orientation="left">&nbsp;</Divider>
+        <Col span={12}>
+          <FormComponent />
+        </Col>
+      </Row>
+      <Row>
+        <Divider orientation="left">&nbsp;</Divider>
+        <Col span={12}>
+          {JSON.stringify(expenses)}
+          <PropsConcept expensesinfo={expenses} />
         </Col>
       </Row>
     </div>
